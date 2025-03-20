@@ -655,12 +655,12 @@ a.anchor {
     to {
         opacity: 1;
         transform: translate(0, 20px);
-    }
+    } 
 }
 
 #MSearchResultsWindow {
-    left: auto !important;
-    right: var(--spacing-medium);
+    right: auto !important;
+    left: var(--spacing-medium);
     border-radius: var(--border-radius-large);
     border: 1px solid var(--separator-color);
     transform: translate(0, 20px);

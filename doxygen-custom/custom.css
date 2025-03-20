@@ -1,57 +1,108 @@
-.github-corner svg {
-    fill: var(--primary-light-color);
-    color: var(--page-background-color);
-    width: 72px;
-    height: 72px;
+/*
+ * Copyright (c) 2021 Nordic Semiconductor ASA
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* This file contains color customizations that follow Zephyr's branding */
+
+html {
+    --primary-color: #af7fe4;
+    --primary-dark-color: #7929d2;
+    --primary-light-color: #cb99f6;
+    --primary-lighter-color: #dfc8fa;
+    --primary-lightest-color: #efe4fc;
+
+    --side-nav-background: #333f67;
+    --side-nav-foreground: #c3e3ff;
+
+    --searchbar-background: var(--page-background-color);
+    --searchbar-foreground: var(--page-foreground-color);
+
+    --link-color: #2980b9;
+    --param-color: #b71c1c;
+
+    --side-nav-fixed-width: 300px;
+    --top-height: 220px;
 }
 
-@media screen and (max-width: 767px) {
-    .github-corner svg {
-        width: 50px;
-        height: 50px;
+@media (prefers-color-scheme: dark) {
+    html:not(.light-mode) {
+        color-scheme: dark;
+
+        --primary-color: #af7fe4;
+        --primary-dark-color: #cb99f6;
+        --primary-light-color: #7929d2;
+        --primary-lighter-color: #191e21;
+        --primary-lightest-color: #191a1c;
+
+        --side-nav-background: #252628;
+        --side-nav-foreground: var(--page-foreground-color);
+
+        --param-color: #ef9a9a;
     }
-    #projectnumber {
-        margin-right: 22px;
-    }
 }
 
-.alter-theme-button {
-    display: inline-block;
-    cursor: pointer;
-    background: var(--primary-color);
-    color: var(--page-background-color) !important;
-    border-radius: var(--border-radius-medium);
-    padding: var(--spacing-small) var(--spacing-medium);
-    text-decoration: none;
+html.dark-mode {
+    color-scheme: dark;
+
+    --primary-color: #af7fe4;
+    --primary-dark-color: #cb99f6;
+    --primary-light-color: #7929d2;
+    --primary-lighter-color: #191e21;
+    --primary-lightest-color: #191a1c;
+
+    --side-nav-background: #252628;
+    --side-nav-foreground: var(--page-foreground-color);
+
+    --param-color: #ef9a9a;
 }
 
-.alter-theme-button:hover {
-    background: var(--primary-dark-color);
+a:link, a:visited, a:hover, a:focus, a:active {
+    color: var(--link-color) !important;
 }
 
-html.dark-mode .darkmode_inverted_image img, /* < doxygen 1.9.3 */
-html.dark-mode .darkmode_inverted_image object[type="image/svg+xml"] /* doxygen 1.9.3 */ {
-    filter: brightness(89%) hue-rotate(180deg) invert();
+.paramname {
+    color: var(--param-color);
 }
 
-.bordered_image {
-    border-radius: var(--border-radius-small);
-    border: 1px solid var(--separator-color);
-    display: inline-block;
-    overflow: hidden;
+dl.section dd, dl.bug dd, dl.deprecated dd {
+    margin-inline-start: revert;
 }
 
-html.dark-mode .bordered_image img, /* < doxygen 1.9.3 */
-html.dark-mode .bordered_image object[type="image/svg+xml"] /* doxygen 1.9.3 */ {
-    border-radius: var(--border-radius-small);
+/* adjust top and title to ~match Sphinx docs */
+#top {
+    background: var(--side-nav-background);
+    padding-left: 100;
 }
 
-.title_screenshot {
-    filter: drop-shadow(0px 3px 10px rgba(0,0,0,0.22));
-    max-width: 500px;
-    margin: var(--spacing-large) 0;
+#titlearea {
+    padding-bottom: 0;
 }
 
-.title_screenshot .caption {
+#titlearea table {
+    width: 100%;
+}
+
+#projectlogo img {
+    width: 200px;
+    height: 95px;
+    max-height: none !important;
+    padding-top: 12px;
+}
+
+#projectalign {
     display: none;
+}
+
+@media screen and (min-width: 767px) {
+    #doc-content {
+        padding-top: calc(var(--top-height) - 180px);
+    }
+}
+
+/* style for re-injected version */
+#projectversion {
+    color: var(--side-nav-foreground);
+    padding-top: 25px;
+    text-align: center;
 }
